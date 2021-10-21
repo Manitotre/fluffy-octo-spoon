@@ -1,0 +1,15 @@
+name: Run tests
+on: [push]
+
+jobs:
+  tests:
+    runs-on: ubuntu-20.04
+    container: ppapav/computational-workflows:latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Run tests
+        run: |
+          python3 -m pytest
